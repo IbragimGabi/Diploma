@@ -1,0 +1,9 @@
+c:\Users\Ибрагим\documents\visual studio 2017\Projects\Diploma\Server\bin\Debug\netcoreapp1.1\Server.deps.json
+c:\Users\Ибрагим\documents\visual studio 2017\Projects\Diploma\Server\bin\Debug\netcoreapp1.1\Server.runtimeconfig.json
+c:\Users\Ибрагим\documents\visual studio 2017\Projects\Diploma\Server\bin\Debug\netcoreapp1.1\Server.runtimeconfig.dev.json
+c:\Users\Ибрагим\documents\visual studio 2017\Projects\Diploma\Server\bin\Debug\netcoreapp1.1\Server.dll
+c:\Users\Ибрагим\documents\visual studio 2017\Projects\Diploma\Server\obj\Debug\netcoreapp1.1\Server.csprojResolveAssemblyReference.cache
+c:\Users\Ибрагим\documents\visual studio 2017\Projects\Diploma\Server\obj\Debug\netcoreapp1.1\Server.AssemblyInfo.cs
+C:\Users\Ибрагим\documents\visual studio 2017\Projects\Diploma\Server\bin\Debug\netcoreapp1.1\Server.pdb
+C:\Users\Ибрагим\documents\visual studio 2017\Projects\Diploma\Server\obj\Debug\netcoreapp1.1\Server.dll
+C:\Users\Ибрагим\documents\visual studio 2017\Projects\Diploma\Server\obj\Debug\netcoreapp1.1\Server.pdb

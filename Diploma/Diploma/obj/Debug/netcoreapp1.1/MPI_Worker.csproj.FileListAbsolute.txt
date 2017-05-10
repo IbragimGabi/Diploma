@@ -1,0 +1,7 @@
+C:\Users\Ибрагим\documents\visual studio 2017\Projects\Diploma\Diploma\bin\Debug\netcoreapp1.1\MPI_Worker.deps.json
+C:\Users\Ибрагим\documents\visual studio 2017\Projects\Diploma\Diploma\bin\Debug\netcoreapp1.1\MPI_Worker.dll
+C:\Users\Ибрагим\documents\visual studio 2017\Projects\Diploma\Diploma\bin\Debug\netcoreapp1.1\MPI_Worker.pdb
+C:\Users\Ибрагим\documents\visual studio 2017\Projects\Diploma\Diploma\obj\Debug\netcoreapp1.1\MPI_Worker.csprojResolveAssemblyReference.cache
+C:\Users\Ибрагим\documents\visual studio 2017\Projects\Diploma\Diploma\obj\Debug\netcoreapp1.1\MPI_Worker.AssemblyInfo.cs
+C:\Users\Ибрагим\documents\visual studio 2017\Projects\Diploma\Diploma\obj\Debug\netcoreapp1.1\MPI_Worker.dll
+C:\Users\Ибрагим\documents\visual studio 2017\Projects\Diploma\Diploma\obj\Debug\netcoreapp1.1\MPI_Worker.pdb

@@ -1,0 +1,6 @@
+C:\Users\Ибрагим\documents\visual studio 2017\Projects\Diploma\Diploma\bin\Debug\netcoreapp1.1\MPI_Service.deps.json
+C:\Users\Ибрагим\documents\visual studio 2017\Projects\Diploma\Diploma\bin\Debug\netcoreapp1.1\MPI_Service.dll
+C:\Users\Ибрагим\documents\visual studio 2017\Projects\Diploma\Diploma\bin\Debug\netcoreapp1.1\MPI_Service.pdb
+C:\Users\Ибрагим\documents\visual studio 2017\Projects\Diploma\Diploma\obj\Debug\netcoreapp1.1\MPI_Service.AssemblyInfo.cs
+C:\Users\Ибрагим\documents\visual studio 2017\Projects\Diploma\Diploma\obj\Debug\netcoreapp1.1\MPI_Service.dll
+C:\Users\Ибрагим\documents\visual studio 2017\Projects\Diploma\Diploma\obj\Debug\netcoreapp1.1\MPI_Service.pdb

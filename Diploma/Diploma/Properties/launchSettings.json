@@ -1,0 +1,7 @@
+{
+  "profiles": {
+    "MPI_Worker": {
+      "commandName": "Project"
+    }
+  }
+}
