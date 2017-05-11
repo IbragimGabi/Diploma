@@ -7080,10 +7080,10 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Ибрагим\\documents\\visual studio 2017\\Projects\\Diploma\\Diploma\\Service.csproj",
+      "projectUniqueName": "C:\\Users\\Ибрагим\\Documents\\учеба\\Diploma\\Diploma\\Service\\Service.csproj",
       "projectName": "Service",
-      "projectPath": "C:\\Users\\Ибрагим\\documents\\visual studio 2017\\Projects\\Diploma\\Diploma\\Service.csproj",
-      "outputPath": "C:\\Users\\Ибрагим\\documents\\visual studio 2017\\Projects\\Diploma\\Diploma\\obj\\",
+      "projectPath": "C:\\Users\\Ибрагим\\Documents\\учеба\\Diploma\\Diploma\\Service\\Service.csproj",
+      "outputPath": "C:\\Users\\Ибрагим\\Documents\\учеба\\Diploma\\Diploma\\Service\\obj\\",
       "projectStyle": "PackageReference",
       "originalTargetFrameworks": [
         "netcoreapp1.1"

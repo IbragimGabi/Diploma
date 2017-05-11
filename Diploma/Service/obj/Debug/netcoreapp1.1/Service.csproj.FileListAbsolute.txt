@@ -1,0 +1,7 @@
+C:\Users\Ибрагим\Documents\учеба\Diploma\Diploma\Diploma\bin\Debug\netcoreapp1.1\Service.deps.json
+C:\Users\Ибрагим\Documents\учеба\Diploma\Diploma\Diploma\bin\Debug\netcoreapp1.1\Service.dll
+C:\Users\Ибрагим\Documents\учеба\Diploma\Diploma\Diploma\bin\Debug\netcoreapp1.1\Service.pdb
+C:\Users\Ибрагим\Documents\учеба\Diploma\Diploma\Diploma\obj\Debug\netcoreapp1.1\Service.csprojResolveAssemblyReference.cache
+C:\Users\Ибрагим\Documents\учеба\Diploma\Diploma\Diploma\obj\Debug\netcoreapp1.1\Service.AssemblyInfo.cs
+C:\Users\Ибрагим\Documents\учеба\Diploma\Diploma\Diploma\obj\Debug\netcoreapp1.1\Service.dll
+C:\Users\Ибрагим\Documents\учеба\Diploma\Diploma\Diploma\obj\Debug\netcoreapp1.1\Service.pdb
