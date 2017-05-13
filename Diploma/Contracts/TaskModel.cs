@@ -5,7 +5,11 @@ namespace Contracts
 {
     public class TaskModel
     {
-        string TaskName { get; set; }
-        List<string> Files { get; set; }
+        public TaskModel()
+        {
+            Files = new List<string>();
+        }
+        public string TaskName { get; set; }
+        public List<string> Files { get; set; }
     }
 }

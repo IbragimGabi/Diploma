@@ -1,5 +1,9 @@
-﻿using System;
+﻿using Contracts;
+using System;
 using System.Collections.Generic;
+using System.IO;
+using System.Net.Http;
+using System.Net.Http.Headers;
 
 namespace ConsoleClient
 {
@@ -100,13 +104,32 @@ namespace ConsoleClient
                 }
             }
 
+
             private void CreateTask()
             {
                 Console.Clear();
 
                 try
                 {
+                    var task = new TaskModel();
+                    Console.WriteLine("Enter task name:");
+                    task.TaskName = Console.ReadLine();
+                    Console.WriteLine("Enter files absoulte paths splitted by ;");
+                    var strFiles = Console.ReadLine();
+                    var files = strFiles.Split(';');
+                    foreach (var file in files)
+                    {
+                        task.Files.Add(file);
+                    }
+                    Console.WriteLine($"Task name: {task.TaskName}");
+                    Console.WriteLine("Task files:");
+                    task.Files.ForEach(_ => Console.WriteLine(_));
 
+                    var result = Proxy.CreateTaskRequest(task);
+                    if (result.StatusCode == System.Net.HttpStatusCode.OK)
+                        Console.WriteLine("Task created!");
+                    else
+                        Console.WriteLine("Something wrong!");
                 }
                 catch (Exception exp)
                 {
@@ -119,7 +142,17 @@ namespace ConsoleClient
                 Console.Clear();
                 try
                 {
+                    Console.WriteLine("Enter task name:");
+                    var task = Console.ReadLine();
+                    Console.WriteLine("Enter thread count");
+                    var threadCount = Convert.ToInt32(Console.ReadLine());
 
+                    Proxy.StartTaskRequest(task, threadCount);
+                    Console.WriteLine($"Task {task} started");
+                    //if (result == "true")
+                    //    Console.WriteLine($"Task {task} started");
+                    //else
+                    //    Console.WriteLine($"Task {task} not started");
                 }
                 catch (Exception exp)
                 {
@@ -133,7 +166,13 @@ namespace ConsoleClient
 
                 try
                 {
-
+                    Console.WriteLine("Enter task name:");
+                    var task = Console.ReadLine();
+                    var result = Proxy.StopTaskRequest(task);
+                    if (result.StatusCode == System.Net.HttpStatusCode.OK)
+                        Console.WriteLine("Task stopped!");
+                    else
+                        Console.WriteLine("Something wrong!");
                 }
                 catch (Exception exp)
                 {
@@ -145,7 +184,13 @@ namespace ConsoleClient
             {
                 Console.Clear();
                 Console.WriteLine("Please enter username for close his sessions:");
-
+                Console.WriteLine("Enter task name:");
+                var task = Console.ReadLine();
+                var result = Proxy.GetTaskStatusRequest(task).Result;
+                if (result == "true")
+                    Console.WriteLine($"Task {task} is running");
+                else
+                    Console.WriteLine($"Task {task} is not running");
                 try
                 {
 
