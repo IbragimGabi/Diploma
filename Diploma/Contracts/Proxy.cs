@@ -37,19 +37,31 @@ namespace Contracts
         {
             var client = new HttpClient();
 
-            var response = client.GetAsync($"{baseUri}/StartTask/{taskName}/{threadCount}");
+            client.GetAsync($"{baseUri}/StartTask/{taskName}/{threadCount}");
         }
 
-        public static HttpResponseMessage StopTaskRequest(string taskName)
+        public static async Task<string> StopTaskRequest(string taskName)
         {
             var client = new HttpClient();
-            return client.GetAsync($"{baseUri}/StopTask/{taskName}").Result;
+            var response = client.GetAsync($"{baseUri}/StopTask/{taskName}").Result;
+
+            string responseBody = await response.Content.ReadAsStringAsync();
+            return responseBody;
         }
 
         public static async Task<string> GetTaskStatusRequest(string taskName)
         {
             var client = new HttpClient();
             var response = client.GetAsync($"{baseUri}/GetTaskStatus/{taskName}").Result;
+
+            string responseBody = await response.Content.ReadAsStringAsync();
+            return responseBody;
+        }
+
+        public static async Task<string> DeleteTaskRequest(string taskName)
+        {
+            var client = new HttpClient();
+            var response = client.DeleteAsync($"{baseUri}/DeleteTask/{taskName}").Result;
 
             string responseBody = await response.Content.ReadAsStringAsync();
             return responseBody;

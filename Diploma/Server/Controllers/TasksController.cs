@@ -27,7 +27,6 @@ namespace Server.Controllers
             _mpiManager = new Parallel_Manager();
             _processManager = new Process_Manager();
             _fileHelper = new FileHelper(env.WebRootPath);
-
         }
 
         [HttpPost("CreateTask/{taskName}")]
@@ -58,22 +57,13 @@ namespace Server.Controllers
         }
 
         [HttpGet("StartTask/{taskName}/{threadCount}")]
-        public bool StartTask(string taskName, int threadCount)
+        public void StartTask(string taskName, int threadCount)
         {
-            try
-            {
-                var files = _fileHelper.GetFiles(taskName);
-                var exeFile = files.Find(_ => _.Contains("(EXECUTE)"));
-                _mpiManager.StartParallelProcess(exeFile, threadCount);
-                return true;
-            }
-            catch
-            {
-                return false;
-            }
+
+            var files = _fileHelper.GetFiles(taskName);
+            var exeFile = files.Find(_ => _.Contains("(EXECUTE)"));
+            _mpiManager.StartParallelProcess(exeFile, threadCount);
         }
-
-
 
         [HttpGet("StopTask/{taskName}")]
         public bool StopTask(string taskName)
@@ -99,24 +89,18 @@ namespace Server.Controllers
             return _processManager.IsRunningProcess(files);
         }
 
-
-
-        // POST api/values
-        [HttpPost]
-        public void Post([FromBody]string value)
+        [HttpDelete("DeleteTask/{taskName}")]
+        public bool DeleteTask(string taskName)
         {
-        }
-
-        // PUT api/values/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody]string value)
-        {
-        }
-
-        // DELETE api/values/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
+            try
+            {
+                _fileHelper.DeleteDirectory(taskName);
+                return true;
+            }
+            catch
+            {
+                return false;
+            }
         }
     }
 }

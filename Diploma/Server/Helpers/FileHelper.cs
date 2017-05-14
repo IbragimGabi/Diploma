@@ -32,6 +32,22 @@ namespace Server.Helpers
                 throw new Exception();
         }
 
+        public void DeleteDirectory(string taskName)
+        {
+            var taskPath = $"{_webRoot}\\Files\\{taskName}";
+            if (Directory.Exists(taskPath))
+            {
+                DirectoryInfo di = new DirectoryInfo(taskPath);
+
+                di.GetFiles().ToList().ForEach(_ => _.Delete());
+                di.GetDirectories().ToList().ForEach(_ => _.Delete(true));
+
+                Directory.Delete(taskPath);
+            }
+            else
+                throw new Exception();
+        }
+
         public string CreateFile(string taskName, string file)
         {
             return $"{_webRoot}\\Files\\{taskName}\\{file}";

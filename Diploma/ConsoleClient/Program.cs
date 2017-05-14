@@ -15,27 +15,21 @@ namespace ConsoleClient
             menu.StartMenu();
         }
 
-
         internal class Menu
         {
             bool _exitFlag;
             private Dictionary<int, string> _menu;
+            private delegate void CallDelegate();
 
             public Menu()
-            {
-                InitMenu();
-            }
-
-            private void InitMenu()
             {
                 _menu = new Dictionary<int, string>();
                 _menu.Add(1, "Create task");
                 _menu.Add(2, "Start task");
                 _menu.Add(3, "Stop task");
                 _menu.Add(4, "Get task's status");
-                _menu.Add(5, "Get task's results");
-                _menu.Add(6, "Delete task");
-                _menu.Add(7, "Exit");
+                _menu.Add(5, "Delete task");
+                _menu.Add(6, "Exit");
             }
 
             public void StartMenu()
@@ -68,7 +62,7 @@ namespace ConsoleClient
 
             public void ShowMenu()
             {
-                Console.WriteLine("Choose row and enter row number:");
+                Console.WriteLine("Choose command and write row number:");
 
                 foreach (var item in _menu)
                 {
@@ -96,14 +90,11 @@ namespace ConsoleClient
                     case 4:
                         return GetStatus;
                     case 5:
-                        return GetResults;
-                    case 6:
                         return DeleteTask;
                     default:
                         return Exit;
                 }
             }
-
 
             private void CreateTask()
             {
@@ -168,11 +159,11 @@ namespace ConsoleClient
                 {
                     Console.WriteLine("Enter task name:");
                     var task = Console.ReadLine();
-                    var result = Proxy.StopTaskRequest(task);
-                    if (result.StatusCode == System.Net.HttpStatusCode.OK)
-                        Console.WriteLine("Task stopped!");
+                    var result = Proxy.StopTaskRequest(task).Result;
+                    if (result == "true")
+                        Console.WriteLine($"Task {task} stopped!");
                     else
-                        Console.WriteLine("Something wrong!");
+                        Console.WriteLine("Something is wrong!");
                 }
                 catch (Exception exp)
                 {
@@ -183,7 +174,6 @@ namespace ConsoleClient
             private void GetStatus()
             {
                 Console.Clear();
-                Console.WriteLine("Please enter username for close his sessions:");
                 Console.WriteLine("Enter task name:");
                 var task = Console.ReadLine();
                 var result = Proxy.GetTaskStatusRequest(task).Result;
@@ -201,27 +191,18 @@ namespace ConsoleClient
                 }
             }
 
-            private void GetResults()
-            {
-                Console.Clear();
-                Console.WriteLine("Trying to close all sessions...");
-
-                try
-                {
-
-
-                }
-                catch (Exception exp)
-                {
-                    Console.WriteLine(exp);
-                }
-            }
-
             private void DeleteTask()
             {
                 try
                 {
-
+                    Console.Clear();
+                    Console.WriteLine("Enter task name:");
+                    var task = Console.ReadLine();
+                    var result = Proxy.DeleteTaskRequest(task).Result;
+                    if (result == "true")
+                        Console.WriteLine($"Task {task} deleted");
+                    else
+                        Console.WriteLine($"Something is wrong");
                 }
                 catch (Exception exp)
                 {
@@ -233,9 +214,6 @@ namespace ConsoleClient
             {
                 _exitFlag = true;
             }
-
-            private delegate void CallDelegate();
-
         }
     }
 }
