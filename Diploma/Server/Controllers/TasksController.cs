@@ -17,16 +17,17 @@ namespace Server.Controllers
     public class TasksController : Controller
     {
         private IHostingEnvironment _env;
-        private IMPI_Manager _mpiManager;
+        private IParallel_Manager _mpiManager;
+        private IProcess_Manager _processManager;
         private FileHelper _fileHelper;
-        private ProcessHelper _processHelper;
 
         public TasksController(IHostingEnvironment env)
         {
             _env = env;
-            _mpiManager = new MPI_Manager();
+            _mpiManager = new Parallel_Manager();
+            _processManager = new Process_Manager();
             _fileHelper = new FileHelper(env.WebRootPath);
-            _processHelper = new ProcessHelper();
+
         }
 
         [HttpPost("CreateTask/{taskName}")]
@@ -63,7 +64,7 @@ namespace Server.Controllers
             {
                 var files = _fileHelper.GetFiles(taskName);
                 var exeFile = files.Find(_ => _.Contains("(EXECUTE)"));
-                _mpiManager.StartMPIProcess(exeFile, threadCount);
+                _mpiManager.StartParallelProcess(exeFile, threadCount);
                 return true;
             }
             catch
@@ -81,7 +82,7 @@ namespace Server.Controllers
             {
                 var files = _fileHelper.GetFiles(taskName);
 
-                _processHelper.FindProcess(files).ForEach(_ => _.Kill());
+                _processManager.KillProcess(files);
                 return true;
             }
             catch
@@ -95,7 +96,7 @@ namespace Server.Controllers
         {
             var files = _fileHelper.GetFiles(taskName);
 
-            return (_processHelper.FindProcess(files).Count > 0) ? true : false;
+            return _processManager.IsRunningProcess(files);
         }
 
 
